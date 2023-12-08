@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" data-bs-theme="dark">
+<th:block th:replace="~{fragments/head :: head('Register')}">
+</th:block>
+<body>
+<th:block th:replace="~{fragments/header :: header}"></th:block>
+<th:block th:replace="~{fragments/forms :: formgroup(~{::#content})}">
+    <form id="content" th:action="@{/register}" th:object="${user}" method="post">
+        <div class="row m-2">
+            <h1 class="text-center text-light-wood">Register</h1>
+        </div>
+        <div class="row m-2">
+            <div th:replace="~{fragments/controls :: form('Username','text','username')}"></div>
+        </div>
+        <div class="row m-2">
+            <div th:replace="~{fragments/controls :: form('Email','email','email')}"></div>
+        </div>
+        <div class="row m-2">
+            <div th:replace="~{fragments/controls :: form('Password','password','password')}"></div>
+        </div>
+        <div class="row m-2 gap-2">
+            <div class="col">
+                <div th:replace="~{fragments/controls :: form('First Name','text','firstName')}"></div>
+            </div>
+            <div class="col">
+                <div th:replace="~{fragments/controls :: form('Last Name','text','lastName')}"></div>
+            </div>
+        </div>
+        <div class="row m-2">
+            <div th:replace="~{fragments/controls :: form('Birthdate','date','birthday')}"></div>
+        </div>
+        <div class="row m-2">
+            <button type="submit" class="btn btn-outline-primary w-25 m-auto">Register</button>
+        </div>
+        <div class="row m-2">
+            <p class="text-center mt-3 w-100">Already a member? <a href="/login" class="link">Sign in now!</a></p>
+        </div>
+    </form>
+</th:block>
+<th:block th:replace="~{fragments/footer :: footer}"></th:block>
+</body>
+</html>

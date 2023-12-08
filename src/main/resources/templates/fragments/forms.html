@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="formgroup(content)" class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-lg-5 col-md-7 col-sm-10 bg-darker-wood bg-shadow border-light-wood rounded-4">
+      <div th:insert="${content}" class="container p-3"></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

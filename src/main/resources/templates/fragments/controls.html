@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+  <div th:fragment="form(label,type,field)"
+       th:with="extra_class=${extra_class} ? ${extra_class}:'', margin=${margin} ? ${margin}:''"
+       th:class="'form-floating '+${margin}">
+    <input th:type="${type}"
+           class="form-control"
+           th:classappend="${extra_class}"
+           th:errorclass="'is-invalid'"
+           th:id="'form__'+${label}"
+           th:placeholder="${label}"
+           th:field="*{__${field}__}"
+           required />
+    <label th:for="'form__'+${label}"
+           th:with="formlabel=${#fields.hasErrors(field)} ? ${#fields.errors(field)[0]} : ${label}"
+           th:text="${formlabel}"></label>
+  </div>
+  <div th:fragment="customForm(label,type,field)"
+       th:with="extra_class=${extra_class} ? ${extra_class}:'', margin=${margin} ? ${margin}:''"
+       th:class="'form-floating '+${margin}">
+    <input th:type="${type}"
+           class="form-control"
+           th:classappend="${extra_class}"
+           th:errorclass="'is-invalid'"
+           th:id="'form__'+${label}"
+           th:placeholder="${label}"
+           th:name="${field}"
+           th:value="''"
+           required />
+    <label th:for="'form__'+${label}"
+           th:text="${label}"></label>
+  </div>
+</body>
+</html>
